@@ -1,0 +1,109 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    font-family: Arial, Tahoma, sans-serif;
+}
+.info-container{
+    width:1080px;
+    margin: 20px auto 0;
+    background-color: #f6f6f6;   
+    padding: 20px;
+    font-size: 24px;
+    overflow: hidden;
+    border:2px solid #2196f3;
+}
+.info-container .name{
+    float:left;
+    width:50%;
+}
+.info-container.tries{
+    float:right;
+    width:50%;
+    text-align:right;
+}
+.memory-game-blocks{
+    display:flex;
+    width: 1100px;
+    flex-wrap: wrap;/*not understand*/
+    margin:20px auto;
+}
+.memory-game-blocks .game-block{
+    height: 200px;
+    /* transition:transform 0.5s;*/
+    transition: all .5s ease-in-out;
+
+    transform-style:preserve-3d;
+    cursor:pointer;
+    /* overflow: hidden;*/
+    position: relative;
+    flex:1 0 200px;
+    margin:0 10px 20px;
+    perspective: 600px;
+}
+.memory-game-blocks .game-block .front{
+    background-color: #333;
+    line-height: 200px;
+    z-index:2;
+    backface-visibility: hidden;  
+
+
+}
+.memory-game-blocks .game-block .front:before {
+    content:'!';
+    color:#fff;
+    font-size:140px;
+    font-weight:bold;
+
+    }
+.memory-game-blocks .game-block .back{
+    background-color: #333;
+    transform:rotateY(180deg);
+    z-index:1;
+    backface-visibility: hidden;  /*انا اظهرت الفرونت للباك */
+
+}
+.memory-game-blocks .game-block .back img{
+    width: 100%;
+    height: 100%;
+    /* margin-top: 30px;*/
+}
+.memory-game-blocks .game-block .face{
+    position: absolute;
+    width:100%;
+    height: 100%;
+    text-align: center;
+    border: 5px solid #2196f3;
+}
+.memory-game-blocks .game-block.is-flipped{
+transform: rotateY(180deg);
+-moz-transform: rotateY(180deg);
+-webkit-transform: rotateY(180deg);
+
+}
+.memory-game-blocks .no-clicking{
+pointer-events:none;
+    }
+.control-buttons span{
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    position:absolute;
+    background-color: #f44336;
+    color:#fff;
+    padding:15px 25px ;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 30px;
+    cursor:pointer;
+
+}
+.control-buttons{
+    position:fixed;/*not understand*/
+    left:0;
+    top:0;
+    width:100%;/*important*/
+    height: 100% ;/*important*/
+    z-index: 2;/*priorty showing*/
+    background-color: rgba(3,169,244,0.9);
+}
