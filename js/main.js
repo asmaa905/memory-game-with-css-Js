@@ -9,7 +9,6 @@ document.querySelector(".control-buttons span").onclick = function () {
     console.log(yourName);
     document.querySelector(".name span").innerHTML = yourName;
   }
-  
   //Remove Splash Screan
   document.querySelector(".control-buttons").remove();
 };
